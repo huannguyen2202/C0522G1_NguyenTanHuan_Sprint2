@@ -1,0 +1,160 @@
+<!--<div class="p-3 px-5" *ngIf="watchs$ !== undefined">-->
+<!--  <h2 class="text-center fw-bold text-light mt-3">DANH SÁCH .....</h2>-->
+
+<!--  <nav class="navbar navbar-expand-lg py-0 my-0">-->
+<!--    <div class="container-fluid">-->
+<!--      <button class="btn btn-primary btn-outline-secondary mb-2" routerLink="/create">-->
+<!--        <span class="text-light"> + Thêm mới ...... </span>-->
+<!--      </button>-->
+
+<!--      <div class="d-flex my-2" role="search">-->
+<!--        <input class="form-control me-2" type="text" placeholder="Tên sản phẩm.." aria-label="Search"-->
+<!--               [(ngModel)]="nameSearch">-->
+
+<!--        <button class="btn btn-light btn-outline-warning me-2" (click)="resetSearchInput()">-->
+<!--          <i class="fa-solid fa-xmark"></i></button>-->
+
+<!--        <button class="btn btn-light btn-outline-primary" (click)="searchByMore()">-->
+<!--          <i class="fa-solid fa-magnifying-glass"></i></button>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </nav>-->
+
+<!--  <table class="table table-light table-striped table-bordered" id="customerTable">-->
+<!--    <thead>-->
+<!--    <tr class="table-dark text-dark">-->
+<!--      <th class="text-center">#</th>-->
+<!--      <th>Tên</th>-->
+<!--      <th>Giá</th>-->
+<!--      <th>Giảm giá</th>-->
+<!--      <th>Hình ảnh</th>-->
+<!--      <th>Chi tiết</th>-->
+<!--      <th>Loại</th>-->
+<!--      <th>hãng</th>-->
+<!--      <th class="text-center" colspan="2">...</th>-->
+<!--    </tr>-->
+<!--    </thead>-->
+
+<!--    <tbody>-->
+<!--    <tr *ngFor="let item of (watchs$ | async)!; index as i">-->
+<!--      <td class="text-center">{{i + 1 + (page - 1) * pageSize}}</td>-->
+<!--      <td>{{item.name}}</td>-->
+<!--      <td>{{item.price}}</td>-->
+<!--      <td>{{item.discount}}</td>-->
+<!--      <td>{{item.image}}</td>-->
+<!--      <td>{{item.detail}}</td>-->
+<!--      <td>{{item.type}}</td>-->
+<!--      <td>{{item.producer}}</td>-->
+
+<!--      <td class="text-center">-->
+<!--        <a routerLink="/edit/{{item.id}}">-->
+<!--          <button class="btn btn-warning btn-outline-secondary text-dark py-0">-->
+<!--            Sửa-->
+<!--          </button>-->
+<!--        </a>-->
+<!--      </td>-->
+<!--      <td class="text-center">-->
+<!--        <button class="btn btn-danger btn-outline-secondary text-white py-0">-->
+<!--          Xóa-->
+<!--        </button>-->
+<!--      </td>-->
+<!--    </tr>-->
+<!--    </tbody>-->
+<!--  </table>-->
+
+<!--  <div class="d-flex justify-content-between p-2">-->
+<!--  </div>-->
+<!--</div>-->
+
+
+<!--hàng 1-->
+<div class="container-fluid" *ngIf="watchs$ !== undefined">
+  <div style="margin-bottom: 40px; margin-top: 15px" class="row">
+    <div class="col-lg-1">
+    </div>
+    <div class="col-lg-10">
+      <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+                  aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                  aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                  aria-label="Slide 3"></button>
+        </div>
+        <div style="border-radius: 10px" class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="https://cuahangdongho.vn/wp-content/uploads/2021/06/banner.jpg" class="d-block w-100"
+                 height="400px">
+          </div>
+          <div class="carousel-item">
+            <img
+              src="https://media-exp1.licdn.com/dms/image/C5112AQEfptQtGhQJzg/article-cover_image-shrink_600_2000/0/1520153249908?e=2147483647&v=beta&t=5jfXfnNfC5Ih8nI0WCNwCu1_I9p36XH4FIHaiHvBCBY"
+              class="d-block w-100" height="400px">
+          </div>
+          <div class="carousel-item">
+            <img src="https://bdkhtravinh.vn/mua-dong-ho-nam-o-dau-tphcm/imager_23563.jpg" class="d-block w-100"
+                 height="400px">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+
+    </div>
+
+    <div class="col-lg-1">
+    </div>
+  </div>
+<!--  hàng 2-->
+  <div class="row two">
+    <div class="col-lg-1">
+    </div>
+    <div class="col-lg-4">
+      <hr>
+    </div>
+    <div class="col-lg-2 shadow"
+         style="background-color: #F56E07; height: 30px; margin-bottom: 15px; border-radius: 5px">
+      <p style="font-size: 18px; font-weight: bold; text-align: center; font-family: 'Times New Roman'; color: white">
+        Danh sách đồng hồ</p>
+    </div>
+    <div class="col-lg-4">
+      <hr>
+    </div>
+    <div class="col-lg-1">
+    </div>
+  </div>
+  <!--  hàng 3.1-->
+  <div class="row" >
+    <div class="col-lg-1">
+    </div>
+    <div class="col-lg-10" >
+      <div class="card shadow me-3" style="width: 285px; height: auto; margin-bottom: 15px;float: left" *ngFor="let item of (watchs$ | async)!; index as i">
+        <a routerLink="/detail">
+          <div class="room_img" style="display: flex; justify-content: center">
+            <figure><img style="width: 100%; height: 250px"
+                         [src]="item.image"/></figure>
+          </div>
+        </a>
+        <div style="margin: auto" class="card-body">
+          <h5 class="card-title">{{item.name}}</h5>
+          <p class="card-text" style="color: red; font-weight: bold; font-size: 20px">{{item.price}} VNĐ</p>
+          <a style="background-color: crimson; color: white" href="#" class="btn">Thêm vào giỏ hàng <i
+            class="fa-solid fa-cart-shopping"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-1">
+    </div>
+  </div>
+</div>
+
+

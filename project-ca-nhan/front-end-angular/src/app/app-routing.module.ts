@@ -4,13 +4,14 @@ import {BodyComponent} from './home/body/body.component';
 import {SignInComponent} from './security/sign-in/sign-in.component';
 import {CartComponent} from './cart/cart.component';
 import {DetailComponent} from './detail/detail.component';
+import {WatchListComponent} from './watch/watch-list/watch-list.component';
 
 
 const routes: Routes = [
   {path: 'login', component: SignInComponent},
-  {path: '', component: BodyComponent},
+  {path: '', component: WatchListComponent},
   {path: 'cart', component: CartComponent},
-  {path: 'detail', component: DetailComponent}
+  {path: 'detail', component: DetailComponent},
 ]
 ;
 

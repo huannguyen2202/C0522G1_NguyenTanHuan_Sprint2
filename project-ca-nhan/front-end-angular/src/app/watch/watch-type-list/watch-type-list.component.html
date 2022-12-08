@@ -1,0 +1,45 @@
+<!--hàng 1-->
+<div class="container-fluid" *ngIf="watchTypes$ !== undefined">
+  <!--  hàng 2-->
+  <div class="row two">
+    <div class="col-lg-1">
+    </div>
+    <div class="col-lg-4">
+      <hr>
+    </div>
+    <div class="col-lg-2 shadow"
+         style="background-color: #F56E07; height: 30px; margin-bottom: 15px; border-radius: 5px">
+      <p style="font-size: 18px; font-weight: bold; text-align: center; font-family: 'Times New Roman'; color: white">
+        Danh sách đồng hồ nam</p>
+    </div>
+    <div class="col-lg-4">
+      <hr>
+    </div>
+    <div class="col-lg-1">
+    </div>
+  </div>
+  <!--  hàng 3.1-->
+  <div class="row" >
+    <div class="col-lg-1">
+    </div>
+    <div class="col-lg-10" >
+      <div class="card shadow me-3" style="width: 285px; height: auto; margin-bottom: 15px;float: left" *ngFor="let item of (watchs$ | async)!; index as i">
+        <a routerLink="/detail">
+          <div class="room_img" style="display: flex; justify-content: center">
+            <figure><img style="width: 100%; height: 250px"
+                         [src]="item.image"/></figure>
+          </div>
+        </a>
+        <div style="margin: auto" class="card-body">
+          <h5 class="card-title">{{item.name}}</h5>
+          <p class="card-text" style="color: red; font-weight: bold; font-size: 20px">{{item.price}} VNĐ</p>
+          <a style="background-color: crimson; color: white" href="#" class="btn">Thêm vào giỏ hàng <i
+            class="fa-solid fa-cart-shopping"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-1">
+    </div>
+  </div>
+</div>
+

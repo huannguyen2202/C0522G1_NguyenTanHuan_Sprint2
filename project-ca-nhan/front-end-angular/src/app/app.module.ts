@@ -9,6 +9,11 @@ import { FooterComponent } from './home/footer/footer.component';
 import { SignInComponent } from './security/sign-in/sign-in.component';
 import { CartComponent } from './cart/cart.component';
 import { DetailComponent } from './detail/detail.component';
+import {FormsModule} from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
+import { WatchListComponent } from './watch/watch-list/watch-list.component';
+import { WatchTypeListComponent } from './watch/watch-type-list/watch-type-list.component';
+
 
 @NgModule({
   declarations: [
@@ -18,11 +23,15 @@ import { DetailComponent } from './detail/detail.component';
     FooterComponent,
     SignInComponent,
     CartComponent,
-    DetailComponent
+    DetailComponent,
+    WatchListComponent,
+    WatchTypeListComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
