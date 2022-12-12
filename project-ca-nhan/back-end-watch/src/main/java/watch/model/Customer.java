@@ -1,5 +1,7 @@
 package watch.model;
 
+import watch.model.decentralization.User;
+
 import javax.persistence.*;
 import java.util.List;
 

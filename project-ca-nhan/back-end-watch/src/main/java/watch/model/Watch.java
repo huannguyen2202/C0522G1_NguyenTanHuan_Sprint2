@@ -25,7 +25,9 @@ public class Watch {
     public Watch() {
     }
 
-    public Watch(int id, String name, String price, String discount, String image, String detail, boolean isDelete, WatchType watchType) {
+    public Watch(int id, String name, String price, String discount,
+                 String image, String detail, boolean isDelete,
+                 WatchType watchType, WatchProducer watchProducer) {
         this.id = id;
         this.name = name;
         this.price = price;
@@ -34,6 +36,7 @@ public class Watch {
         this.detail = detail;
         this.isDelete = isDelete;
         this.watchType = watchType;
+        this.watchProducer = watchProducer;
     }
 
     public int getId() {
@@ -98,5 +101,13 @@ public class Watch {
 
     public void setWatchType(WatchType watchType) {
         this.watchType = watchType;
+    }
+
+    public WatchProducer getWatchProducer() {
+        return watchProducer;
+    }
+
+    public void setWatchProducer(WatchProducer watchProducer) {
+        this.watchProducer = watchProducer;
     }
 }

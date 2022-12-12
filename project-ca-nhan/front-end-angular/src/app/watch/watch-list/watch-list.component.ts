@@ -4,6 +4,7 @@ import {IWatchDto} from '../../model/i-watch-dto';
 import {IWatchType} from '../../model/i-watch-type';
 import {IWatchProducer} from '../../model/i-watch-producer';
 import {WatchService} from '../../service/watch.service';
+import swal from 'sweetalert2';
 
 @Component({
   selector: 'app-watch-list',
@@ -13,8 +14,10 @@ import {WatchService} from '../../service/watch.service';
 export class WatchListComponent implements OnInit {
   nameSearch = '';
   page = 1;
-  pageSize = 5;
+  pageSize = 8;
   total$: Observable<number>;
+  totalElement: number;
+  action: boolean;
   watchs$: Observable<IWatchDto[]>;
   watchTypes$: Observable<IWatchType[]>;
   watchProducers$: Observable<IWatchProducer[]>;
@@ -25,18 +28,37 @@ export class WatchListComponent implements OnInit {
     this.getAllWatchType();
     this.getAllWatchProducer();
     this.getAllWatchPaging();
+    // this.paginate();
   }
 
   getAllWatchPaging(): void {
     this.watchService.findAllWatchPaging(this.page, this.pageSize, this.nameSearch).subscribe(value => {
+      if (value != null) {
+        console.log(value.content);
+        this.action = true;
+        // this.beerListDto$ = new BehaviorSubject<IBeerDto[]>(data.content);
         this.watchs$ = new BehaviorSubject<IWatchDto[]>(value.content);
         this.total$ = new BehaviorSubject<number>(value.totalElements);
-        console.log(this.watchs$);
-      },
-      error => {
-        console.log(error);
+        this.totalElement = value.totalElements;
+      } else {
+        this.action = false;
+      }
       });
   }
+
+  // paginate() {
+  //   this.watchService.findAllWatchPaging(this.page, this.pageSize).subscribe(data => {
+  //     if (data != null) {
+  //       console.log(data.content);
+  //       this.action = true;
+  //       this.beerListDto$ = new BehaviorSubject<IBeerDto[]>(data.content);
+  //       this.total$ = new BehaviorSubject<number>(data.totalElements);
+  //       this.totalElement = data.totalElements;
+  //     } else {
+  //       this.action = false;
+  //     }
+  //   });
+  // }
 
   getAllWatchType(): void {
     this.watchService.findAllWatchType().subscribe(value => {
@@ -66,6 +88,24 @@ export class WatchListComponent implements OnInit {
 
   searchByMore(): void {
     this.page = 1;
+    this.getAllWatchPaging();
+  }
+
+  showDetail(image: string, detail: string) {
+    swal.fire({
+      title: 'Thông tin sản phẩm',
+      text: detail,
+      imageUrl: image,
+      imageWidth: 400,
+      imageHeight: 200,
+      imageAlt: 'Custom image',
+    });
+  }
+
+
+
+  nextPage() {
+    this.pageSize += 4;
     this.getAllWatchPaging();
   }
 }

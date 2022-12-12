@@ -1,4 +1,4 @@
-package watch.model;
+package watch.model.decentralization;
 
 import javax.persistence.*;
 import java.io.Serializable;

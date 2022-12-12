@@ -17,14 +17,17 @@ public interface IWatchRepository extends JpaRepository<Watch, Integer> {
             "watch.discount as discount, " +
             "watch.image as image, " +
             "watch.detail as detail, " +
-            "watch_type.name as type " +
+            "watch_type.name as type, " +
+            "watch_producer.name as producer " +
             "from watch " +
             "join watch_type on watch.watch_type_id = watch_type.id " +
+            "join  watch_producer on watch.watch_producer_id = watch_producer.id " +
             "where watch.name like %:nameSearch% " +
             "and watch.is_delete = 0",
             countQuery = "select count(*) " +
                     "from watch " +
                     "join watch_type on watch.watch_type_id = watch_type.id " +
+                    "join watch_producer on watch.watch_producer_id = watch_producer.id " +
                     "where watch.name like %:nameSearch% " +
                     "and watch.is_Delete = 0", nativeQuery = true)
     Page<IWatchDto> searchWatch(@Param("nameSearch") String nameSearch, Pageable pageable);

@@ -9,5 +9,5 @@ import java.util.Optional;
 
 public interface IWatchService {
     Page<IWatchDto> searchWatch(String nameSearch, Pageable pageable);
-    Optional<Watch> findById(int id);
+    Optional<Watch> findById(Integer id);
 }

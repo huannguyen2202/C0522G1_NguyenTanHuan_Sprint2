@@ -1,23 +1,14 @@
-package watch.model;
+package watch.dto.decentralization;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-
-@Entity
-public class Role {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class RoleDto {
     private Integer id;
     private String name;
     private boolean isDelete;
 
-    public Role() {
+    public RoleDto() {
     }
 
-    public Role(Integer id, String name, boolean isDelete) {
+    public RoleDto(Integer id, String name, boolean isDelete) {
         this.id = id;
         this.name = name;
         this.isDelete = isDelete;

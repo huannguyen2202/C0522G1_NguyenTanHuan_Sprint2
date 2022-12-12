@@ -18,43 +18,35 @@
     <span style="color: red"><a routerLink="/cart" class="navbar-brand"><i class="fa-solid fa-cart-shopping"
                                                                 style="font-size: 40px; color: crimson"></i></a>GIỎ HÀNG</span>
   </div>
-<!--  <div class="col-lg-1">-->
-
-<!--  </div>-->
-<!--  <div class="col-lg-2">-->
-<!--    <button class="shadow" id="login" onclick="document.getElementById('id01').style.display='block'" style="width:auto">Đăng nhập</button>-->
+<!--  <div style="margin-top: 38px" class="col-lg-2">-->
+<!--    <a routerLink="/login" id="test" aria-expanded="false" style="color: #21a117; text-decoration: none">-->
+<!--      <span>-->
+<!--        <i class="fas fa-user fa-lg" style="height: 20px "></i>-->
+<!--        Đăng nhập-->
+<!--      </span>-->
+<!--    </a>-->
 <!--  </div>-->
   <div style="margin-top: 38px" class="col-lg-2">
-<!--    <ul style="list-style: none">-->
-<!--    <li class="nav-item dropdown">-->
-<!--      <a class="nav-link dropdown-toggle" role="button"-->
-<!--         data-bs-toggle="dropdown" aria-expanded="false" style="color: #21a117">-->
-<!--        <span><i class="fas fa-user fa-lg" style="height: 20px"></i> Đăng nhập</span>-->
-<!--&lt;!&ndash;        <span><i class="fas fa-user-check fa-lg" style="height: 20px"></i></span>&ndash;&gt;-->
-<!--      </a>-->
-<!--      <ul class="dropdown-menu">-->
-<!--        <li><a class="dropdown-item" routerLink="/security/sign-up"><i class="fas fa-user-plus"></i> &nbsp; Đăng Kí</a></li>-->
-<!--        <li><a class="dropdown-item" routerLink="/login/login"><i class="fas fa-user"></i> &nbsp; Đăng Nhập</a>-->
-<!--        </li>-->
-<!--        <li><a class="dropdown-item" routerLink="/customer/create"><i class="fas fa-user-cog"></i> &nbsp; Thông Tin Tài Khoản</a></li>-->
-<!--        <li><a  class="dropdown-item" style="color: #F44336" routerLink=""><i-->
-<!--          class="fas fa-user-times"></i> &nbsp;-->
-<!--          Đăng Xuất</a></li>-->
-<!--      </ul>-->
-<!--    </li>-->
-<!--    </ul>-->
-    <a routerLink="/login" id="test" aria-expanded="false" style="color: #21a117; text-decoration: none">
-      <span>
-        <i class="fas fa-user fa-lg" style="height: 20px "></i>
-        Đăng nhập
-      </span>
-      <!--        <span><i class="fas fa-user-check fa-lg" style="height: 20px"></i></span>-->
-    </a>
+<!--    <div class="dropdown mt-2" style="padding: 0">-->
+<!--      <p style="color: black;font-weight: bolder;font-size: 20px">-->
+<!--        <i class="fa-solid fa-user"></i>-->
+<!--        Tài khoản cuả bạn-->
+<!--      </p>-->
+<!--      <p class="colorB">-->
+        <a routerLink="/register/info" *ngIf="username" style="text-decoration: none; color: orange;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+               class="bi bi-person-bounding-box" viewBox="0 0 16 16">
+            <path
+              d="M1.5 1a.5.5 0 0 0-.5.5v3a.5.5 0 0 1-1 0v-3A1.5 1.5 0 0 1 1.5 0h3a.5.5 0 0 1 0 1h-3zM11 .5a.5.5 0 0 1 .5-.5h3A1.5 1.5 0 0 1 16 1.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 1-.5-.5zM.5 11a.5.5 0 0 1 .5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 1 0 1h-3A1.5 1.5 0 0 1 0 14.5v-3a.5.5 0 0 1 .5-.5zm15 0a.5.5 0 0 1 .5.5v3a1.5 1.5 0 0 1-1.5 1.5h-3a.5.5 0 0 1 0-1h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 1 .5-.5z"/>
+            <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm8-9a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+          </svg>
+          <span class="ps-2">{{username}}</span></a>
+        <a routerLink="/login" *ngIf="username==''" style="color: #21a117; text-decoration: none"><span><i class="fas fa-user fa-lg" style="height: 20px "></i>Đăng nhập</span></a> <a (click)="whenLogout()" *ngIf="username!=''"> / Đăng
+        xuất</a>
+<!--      </p>-->
+<!--    </div>-->
   </div>
 </div>
-
-
-
 <div style="background-color: #0C6154; height: 60px" class="row navbar">
   <div class="col-lg-12">
     <nav class="navbar navbar-expand-lg nav-header">
@@ -81,19 +73,6 @@
 <!--                <li><a class="dropdown-item" routerLink="/moviePremiere">Vật dụng khác</a></li>-->
               </ul>
             </li>
-<!--            <li class="nav-item dropdown mx-5">-->
-<!--              <a style="color: white" class="nav-link colorA" routerLink="/employee/list">-->
-<!--                <i class="fa-solid fa-list-check"></i>-->
-<!--                Thương hiệu-->
-<!--              </a>-->
-<!--              <ul class="dropdown-menu dropdown-menu-danger">-->
-<!--                <li><a class="dropdown-item" routerLink="/moviePlay">Seiko</a></li>-->
-<!--                <li><a class="dropdown-item" routerLink="/moviePremiere">Orient</a></li>-->
-<!--                <li><a class="dropdown-item" routerLink="/moviePremiere">Casio</a></li>-->
-<!--                <li><a class="dropdown-item" routerLink="/moviePremiere">Tissot</a></li>-->
-<!--              </ul>-->
-<!--            </li>-->
-
             <li class="nav-item dropdown mx-5">
               <a style="color: white" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                  aria-expanded="false">
