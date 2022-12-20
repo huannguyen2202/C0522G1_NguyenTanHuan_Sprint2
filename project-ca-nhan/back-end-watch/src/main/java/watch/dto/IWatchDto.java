@@ -8,4 +8,5 @@ public interface IWatchDto {
     String getImage();
     String getDetail();
     String getType();
+    String getProducer();
 }

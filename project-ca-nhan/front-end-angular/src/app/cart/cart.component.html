@@ -2,110 +2,39 @@
   <div class="container">
     <div class="row d-flex justify-content-around align-items-center h-100">
       <div class="d-flex justify-content-between align-items-center mt-5">
-<!--        <h3 class="fw-normal mb-0 text-black">GIỎ HÀNG</h3>-->
+        <!--        <h3 class="fw-normal mb-0 text-black">GIỎ HÀNG</h3>-->
       </div>
       <div class="col-md-8">
-
-        <div class="card rounded-3 mb-2">
+        <div class="card rounded-3 mb-2" *ngFor="let item of carts; index as i">
           <div class="card-body p-4">
             <div class="row d-flex justify-content-between align-items-center">
               <div class="col-md-1 col-lg-1 col-xl-1 text-end">
-                <input class="form-check-inline" type="checkbox" value="" />
+<!--                <input class="form-check-inline" type="checkbox" value=""/>-->
               </div>
               <div class="col-md-2 col-lg-2 col-xl-2">
-                <img src="https://cdn3.dhht.vn/wp-content/uploads/2019/09/RA-AR0004S10B-399x399.jpg" alt="Cotton T-shirt" style="height: 100px; width: auto">
+                <img [src]="item.image" style="height: 100px; width: auto">
               </div>
               <div class="col-md-3 col-lg-3 col-xl-3">
-                <p class="lead fw-normal mb-2"></p>
-                <p><span class="text-muted">Orient AR0004S10B</span></p>
+                <p class="lead fw-normal mb-2">{{item.title}}</p>
+                <p><span style="font-weight: bold" class="text-muted">{{item.name}}</span></p>
               </div>
               <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
-                <button class="btn btn-link px-2">
+                <button class="btn btn-link px-2" (click)="decrease(i, item.quantity)">
                   <i class="fas fa-minus"></i>
                 </button>
 
-                <input style="width: 60px" min="0" name="quantity"  type="number"
+                <input style="width: 60px" min="0" name="quantity" [value]="item.quantity" type="number"
                        class="form-control form-control-sm"/>
 
-                <button class="btn btn-link px-2" >
+                <button class="btn btn-link px-2" (click)="increase(i, item.quantity)">
                   <i class="fas fa-plus"></i>
                 </button>
               </div>
               <div class="col-md-2 col-lg-2 col-xl-2 offset-lg-1">
-                <h6 class="mb-0">9.000.000 VNĐ</h6>
+                <h6 class="mb-0">{{item.quantity*item.price | number}}VNĐ</h6>
               </div>
               <div class="col-md-1 col-lg-1 col-xl-1 text-end">
-                <a href="#!" class="text-danger"><i class="fas fa-trash fa-lg"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="card rounded-3 mb-2">
-          <div class="card-body p-4">
-            <div class="row d-flex justify-content-between align-items-center">
-              <div class="col-md-1 col-lg-1 col-xl-1 text-end">
-                <input class="form-check-inline" type="checkbox" value="" id="flexCheckDefault" />
-              </div>
-              <div class="col-md-2 col-lg-2 col-xl-2">
-                <img src="https://cdn3.dhht.vn/wp-content/uploads/2018/05/95_T006.407.22.033.00-1-399x399.jpg" alt="Cotton T-shirt" style="height: 100px; width: auto">
-              </div>
-              <div class="col-md-3 col-lg-3 col-xl-3">
-                <p class="lead fw-normal mb-2"></p>
-                <p><span class="text-muted">Tissot Le Locle</span></p>
-              </div>
-              <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
-                <button class="btn btn-link px-2">
-                  <i class="fas fa-minus"></i>
-                </button>
-
-                <input style="width: 60px" id="form1" min="0" name="quantity"  type="number"
-                       class="form-control form-control-sm"/>
-
-                <button class="btn btn-link px-2" >
-                  <i class="fas fa-plus"></i>
-                </button>
-              </div>
-              <div class="col-md-2 col-lg-2 col-xl-2 offset-lg-1">
-                <h6 class="mb-0">8.000.000 VNĐ</h6>
-              </div>
-              <div class="col-md-1 col-lg-1 col-xl-1 text-end">
-                <a href="#!" class="text-danger"><i class="fas fa-trash fa-lg"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="card rounded-3 mb-2">
-          <div class="card-body p-4">
-            <div class="row d-flex justify-content-between align-items-center">
-              <div class="col-md-1 col-lg-1 col-xl-1 text-end">
-                <input class="form-check-inline" type="checkbox" value="" id="flexCheckDefault" />
-              </div>
-              <div class="col-md-2 col-lg-2 col-xl-2">
-                <img src="https://cdn3.dhht.vn/wp-content/uploads/2017/09/55_EM0503-83X-399x399.jpg" alt="Cotton T-shirt" style="height: 100px; width: auto">
-              </div>
-              <div class="col-md-3 col-lg-3 col-xl-3">
-                <p class="lead fw-normal mb-2"></p>
-                <p><span class="text-muted">Citizen EM0503-83X</span></p>
-              </div>
-              <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
-                <button class="btn btn-link px-2">
-                  <i class="fas fa-minus"></i>
-                </button>
-
-                <input style="width: 60px" id="form1" min="0" name="quantity"  type="number"
-                       class="form-control form-control-sm"/>
-
-                <button class="btn btn-link px-2" >
-                  <i class="fas fa-plus"></i>
-                </button>
-              </div>
-              <div class="col-md-2 col-lg-2 col-xl-2 offset-lg-1">
-                <h6 class="mb-0">6.000.000 VNĐ</h6>
-              </div>
-              <div class="col-md-1 col-lg-1 col-xl-1 text-end">
-                <a href="#!" class="text-danger"><i class="fas fa-trash fa-lg"></i></a>
+                <a class="text-danger" (click)="deleteCart(i)"><i class="fas fa-trash fa-lg"></i></a>
               </div>
             </div>
           </div>
@@ -136,7 +65,7 @@
               <li
                 class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
                 Tạm tính
-                <span>23.000.000 VNĐ</span>
+                <span>{{totalPrice | number}}VNĐ</span>
               </li>
               <li class="list-group-item d-flex justify-content-between align-items-center px-0">
                 Giảm giá
@@ -150,16 +79,19 @@
                     <p class="mb-0">(Đã bao gồm VAT)</p>
                   </strong>
                 </div>
-                <span><strong>23.000.000 VNĐ</strong></span>
+                <span><strong>{{totalPrice |number}} VNĐ</strong></span>
               </li>
             </ul>
 
-            <button type="button" class="btn btn-primary btn-lg btn-block">
-              Mua hàng (3)
+            <button style="width: 100%" type="button" class="btn btn-primary btn-lg btn-block" (click)="payment()">
+              Thanh toán ngay ({{totalQuantity}})
             </button>
+            <div style="margin-top: 15px" id="paypal"></div>
+
           </div>
         </div>
       </div>
+
 
     </div>
   </div>

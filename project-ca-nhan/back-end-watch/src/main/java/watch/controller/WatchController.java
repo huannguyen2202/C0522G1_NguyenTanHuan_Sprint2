@@ -85,8 +85,8 @@ public class WatchController {
         return new ResponseEntity<>(watchProducers, HttpStatus.OK);
     }
     @GetMapping("/detail/{id}")
-    public ResponseEntity<Watch> getInfo(@PathVariable int id) {
-        Optional<Watch> watch = iWatchService.findById(id);
+    public ResponseEntity<IWatchDto> getInfo(@PathVariable int id) {
+        Optional<IWatchDto> watch = iWatchService.findById(id);
         if (watch.isPresent()) {
             return new ResponseEntity<>(watch.get(), HttpStatus.OK);
         }

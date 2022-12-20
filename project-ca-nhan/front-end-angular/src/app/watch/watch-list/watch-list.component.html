@@ -1,5 +1,5 @@
 <!--hàng 1-->
-<div class="container-fluid" *ngIf="watchs$ !== undefined">
+<div class="container-fluid" *ngIf="watchs$ !== undefined" style="overflow-x: hidden">
   <div style="margin-bottom: 40px; margin-top: 15px" class="row">
     <div class="col-lg-1">
     </div>
@@ -78,7 +78,7 @@
         <div style="margin: auto" class="card-body">
           <h5 class="card-title">{{item.name}}</h5>
           <p class="card-text" style="color: red; font-weight: bold; font-size: 20px">{{item.price | number}} VNĐ</p>
-          <a style="background-color: crimson; color: white" href="#" class="btn">Thêm vào giỏ hàng <i
+          <a style="background-color: crimson; color: white" href="#" class="btn" (click)="onAddToCart(item)">Thêm vào giỏ hàng <i
             class="fa-solid fa-cart-shopping"></i></a>
         </div>
       </div>

@@ -1,10 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {BehaviorSubject, Observable} from 'rxjs';
 import {IWatchDto} from '../../model/i-watch-dto';
 import {IWatchType} from '../../model/i-watch-type';
 import {IWatchProducer} from '../../model/i-watch-producer';
 import {WatchService} from '../../service/watch.service';
 import swal from 'sweetalert2';
+import Swal from 'sweetalert2';
+import {CartService} from '../../service/cart.service';
+import {DataService} from '../../service/data.service';
 
 @Component({
   selector: 'app-watch-list',
@@ -21,8 +24,12 @@ export class WatchListComponent implements OnInit {
   watchs$: Observable<IWatchDto[]>;
   watchTypes$: Observable<IWatchType[]>;
   watchProducers$: Observable<IWatchProducer[]>;
+  cart: any = this.watchService.getCart();
 
-  constructor(private watchService: WatchService) { }
+  constructor(private watchService: WatchService,
+              private cartService: CartService,
+              private dataService: DataService) {
+  }
 
   ngOnInit(): void {
     this.getAllWatchType();
@@ -43,22 +50,8 @@ export class WatchListComponent implements OnInit {
       } else {
         this.action = false;
       }
-      });
+    });
   }
-
-  // paginate() {
-  //   this.watchService.findAllWatchPaging(this.page, this.pageSize).subscribe(data => {
-  //     if (data != null) {
-  //       console.log(data.content);
-  //       this.action = true;
-  //       this.beerListDto$ = new BehaviorSubject<IBeerDto[]>(data.content);
-  //       this.total$ = new BehaviorSubject<number>(data.totalElements);
-  //       this.totalElement = data.totalElements;
-  //     } else {
-  //       this.action = false;
-  //     }
-  //   });
-  // }
 
   getAllWatchType(): void {
     this.watchService.findAllWatchType().subscribe(value => {
@@ -102,10 +95,32 @@ export class WatchListComponent implements OnInit {
     });
   }
 
-
-
   nextPage() {
     this.pageSize += 4;
     this.getAllWatchPaging();
+  }
+
+  onAddToCart(watch: any) {
+    const index = this.cart.findIndex((item) => {
+      return item.id === watch.id;
+    });
+    if (index >= 0) {
+      this.cart[index].quantity += 1;
+    } else {
+      const cartItem: any = {
+        id: watch.id,
+        name: watch.name,
+        title: watch.title,
+        price: watch.price,
+        image: watch.image,
+        quantity: 1
+      };
+      this.cart.push(cartItem);
+    }
+    this.cartService.saveCart(this.cart);
+    this.dataService.changeData({
+      quantity: this.cartService.getTotalQuantity()
+    });
+    Swal.fire('Thông Báo !!', 'Đã thêm vào giỏ hàng', 'success').then();
   }
 }

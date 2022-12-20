@@ -3,6 +3,7 @@
   </div>
   <div class="col-lg-3 shadow" style="border-radius: 10px" *ngIf="watches !=null">
           <img [src]="watches.image" style="margin: auto" height="330px" width="auto">
+    <p style="margin-top: 60px; font-weight: bold; font-size: 40px; text-align: center; color: #0C6154; font-family: 'Times New Roman'">{{watches.name}}</p>
 
   </div>
   <div class="col-lg-4" style="margin-left: 20px">
@@ -34,14 +35,6 @@
         <p>: {{watches.producer}}</p>
       </div>
     </div>
-    <div class="row">
-      <div class="col-lg-6">
-        <p class="detail">Chi tiết</p>
-      </div>
-      <div class="col-lg-6" style="text-align: justify">
-        <p>:{{watches.detail}}</p>
-      </div>
-    </div>
 
     <div class="row">
       <div class="col-lg-6">
@@ -52,9 +45,20 @@
       </div>
     </div>
 
+    <div class="row">
+      <div class="col-lg-6">
+        <p class="detail">Chi tiết</p>
+      </div>
+      <div class="col-lg-6" style="text-align: justify">
+        <p>:{{watches.detail}}</p>
+      </div>
+    </div>
+
+
+
     <div class="row" style="margin-left: 150px; margin-top: 50px">
       <div class="col-lg-12">
-        <a style="background-color: crimson; color: white" href="#" class="btn">Thêm vào giỏ hàng <i
+        <a style="background-color: crimson; color: white" class="btn" (click)="onAddToCart(watches)">Thêm vào giỏ hàng <i
           class="fa-solid fa-cart-shopping"></i></a>
       </div>
     </div>

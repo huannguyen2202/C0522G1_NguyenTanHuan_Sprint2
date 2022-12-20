@@ -22,8 +22,8 @@ public class WatchService implements IWatchService {
     }
 
     @Override
-    public Optional<Watch> findById(Integer id) {
-        return iWatchRepository.findById(id);
+    public Optional<IWatchDto> findById(Integer id) {
+        return iWatchRepository.searchWatchDetail(id);
     }
 
 

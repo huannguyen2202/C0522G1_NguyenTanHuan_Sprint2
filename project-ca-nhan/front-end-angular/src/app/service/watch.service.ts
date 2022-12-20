@@ -35,4 +35,12 @@ export class WatchService {
   InfoProducer(id: number): Observable<IWatchDto> {
     return this.httpClient.get<IWatchDto>(API_URL + '/watch/detail/' + id);
   }
+  getCart() {
+    const cartJson = sessionStorage.getItem('cart');
+    if (cartJson) {
+      return JSON.parse(cartJson);
+    } else {
+      return [];
+    }
+  }
 }
