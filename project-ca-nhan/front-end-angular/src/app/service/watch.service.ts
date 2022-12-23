@@ -17,8 +17,15 @@ export class WatchService {
   }
 
   findAllWatchPaging(page: number, limit: number, nameSearch: string): Observable<DataResult<IWatchDto>> {
-    return this.httpClient.get<DataResult<IWatchDto>>(API_URL + '/watch/list?page=' + (page - 1) + '&size=' + limit);
+    console.log(API_URL + '/watch/list?page=' + (page - 1) + '&size=' + limit +'&nameSearch='+ nameSearch);
+    return this.httpClient.get<DataResult<IWatchDto>>(API_URL + '/watch/list?page=' + (page - 1) + '&size=' + limit +'&nameSearch='+ nameSearch);
   }
+
+  // findAllProductPaging(curPage: number, numberRecord: number, nameSearch: string,
+  //                      typeSearch: string): Observable<DataResult<IProductDto>> {
+  //   return this.httpClient.get<DataResult<IProductDto>>(API_URL + '/product/list/' + nameSearch + '&' + typeSearch
+  //     + '?page=' + (curPage - 1) + '&size=' + numberRecord);
+  // }
 
   // paginate(page: number, limit: number): Observable<SearchResult<IBeerDto>> {
   //   return this.http.get<SearchResult<IBeerDto>>(this.API_BEER + '/beer/list?page=' + (page - 1) + '&size=' + limit);

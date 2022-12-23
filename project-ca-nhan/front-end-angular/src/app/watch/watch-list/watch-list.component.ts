@@ -39,7 +39,9 @@ export class WatchListComponent implements OnInit {
   }
 
   getAllWatchPaging(): void {
+    console.log(this.nameSearch);
     this.watchService.findAllWatchPaging(this.page, this.pageSize, this.nameSearch).subscribe(value => {
+
       if (value != null) {
         console.log(value.content);
         this.action = true;
@@ -52,6 +54,17 @@ export class WatchListComponent implements OnInit {
       }
     });
   }
+
+  // getAllProductPaging(): void {
+  //   this.productService.findAllProductPaging(this.page, this.pageSize, this.nameSearch, this.typeSearch).subscribe(value => {
+  //       this.products$ = new BehaviorSubject<IProductDto[]>(value.content);
+  //       this.total$ = new BehaviorSubject<number>(value.totalElements);
+  //       console.log(this.products$);
+  //     },
+  //     error => {
+  //       console.log(error);
+  //     });
+  // }
 
   getAllWatchType(): void {
     this.watchService.findAllWatchType().subscribe(value => {

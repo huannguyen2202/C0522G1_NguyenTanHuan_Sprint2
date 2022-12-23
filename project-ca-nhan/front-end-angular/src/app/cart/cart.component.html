@@ -83,10 +83,12 @@
               </li>
             </ul>
 
-            <button style="width: 100%" type="button" class="btn btn-primary btn-lg btn-block" (click)="payment()">
-              Thanh toán ngay ({{totalQuantity}})
-            </button>
-            <div style="margin-top: 15px" id="paypal"></div>
+
+            <div style="margin-top: 15px" id="paypal">
+              <button *ngIf="action" style="width: 100%" type="button" class="btn btn-primary btn-lg btn-block" (click)="payment()">
+                Thanh toán ngay ({{totalQuantity}})
+              </button>
+            </div>
 
           </div>
         </div>

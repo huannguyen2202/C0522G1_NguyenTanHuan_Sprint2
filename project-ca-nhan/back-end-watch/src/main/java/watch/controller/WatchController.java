@@ -58,8 +58,9 @@ public class WatchController {
 //    }
 
     @GetMapping("/list")
-    public ResponseEntity<Page<IWatchDto>> getAllProduct(@RequestParam(value = "nameSearch", defaultValue = "") String nameSearch,
+    public ResponseEntity<Page<IWatchDto>> getAllProduct(@RequestParam(value = "nameSearch") String nameSearch,
                                                          @PageableDefault(value = 8) Pageable pageable) {
+        System.out.println(nameSearch);
         Page<IWatchDto> watchPage = iWatchService.searchWatch(nameSearch, pageable);
         if (watchPage.isEmpty()) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);

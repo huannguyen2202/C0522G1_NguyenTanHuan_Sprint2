@@ -7,6 +7,7 @@ import {Observable} from 'rxjs';
 import {render} from 'creditcardpayments/creditCardPayments';
 import Swal from 'sweetalert2';
 import swal from 'sweetalert2';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-cart',
@@ -14,6 +15,7 @@ import swal from 'sweetalert2';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
+  action = true;
   carts: any = [];
   watch: IWatchDto;
   watchs$: Observable<IWatchDto[]>;
@@ -22,7 +24,7 @@ export class CartComponent implements OnInit {
 
   constructor(private cartService: CartService,
               private dataService: DataService,
-              // private tokenStorageService: TokenStorageService,
+              private router: Router,
               private title: Title) {
     this.title.setTitle('Giỏ hàng');
     // render(
@@ -96,6 +98,7 @@ export class CartComponent implements OnInit {
   payment() {
     // document.getElementById('myPayPalButtons').innerHTML = '<div id="btnPaypal"></div>';
     // const username = this.tokenStorageService.getUser().username;
+    this.action = false;
     render({
       id: '#paypal',
       currency: 'VND',
@@ -112,6 +115,7 @@ export class CartComponent implements OnInit {
         this.dataService.changeData({
           quantity: this.cartService.getTotalQuantity()
         });
+        this.router.navigateByUrl("/");
       }
     });
   }
